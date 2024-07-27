@@ -15,8 +15,10 @@ const CollaborativeRoom = ({
   roomId,
   roomMetadata,
   users,
-  currentUserType,
+  // currentUserType,
 }: CollaborativeRoomProps) => {
+  const currentUserType = "editor";
+
   const [documentTitle, setDocumentTitle] = useState(roomMetadata.title);
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);

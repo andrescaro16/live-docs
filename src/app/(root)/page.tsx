@@ -1,18 +1,21 @@
 import AddDocumentBtn from "@/components/AddDocumentBtn";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
+import { getDocuments } from "@/lib/actions/room.actions";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import Image from "next/image";
+import { dateConverter } from "@/lib/utils";
 
 const Home = async () => {
   const clerkUser = await currentUser();
   if (!clerkUser) redirect("/sign-in");
 
-  // const roomDocuments = await getDocuments(
-  //   clerkUser.emailAddresses[0].emailAddress,
-  // );
+  const roomDocuments = await getDocuments(
+    clerkUser.emailAddresses[0].emailAddress,
+  );
 
   return (
     <main className="home-container">
