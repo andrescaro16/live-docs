@@ -6,7 +6,7 @@ import { metadata } from "../../../layout";
 import { getClerkUsers } from "@/lib/actions/user.actions";
 
 const Document = async ({ params: { id } }: SearchParamProps) => {
-  const clerkUser = await currentUser();
+  const clerkUser = await currentUser();  
   if (!clerkUser) redirect("/sign-in");
 
   const room = await getDocument({
